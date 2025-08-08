@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Settings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            width: 350px;
+            font-family: 'Inter', sans-serif;
+        }
+        .input-group input {
+            width: 60px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 p-4">
+
+    <div class="container mx-auto">
+        <h1 class="text-xl font-bold text-center mb-4 text-gray-700">Timer Overlay Settings</h1>
+
+        <!-- Time Input -->
+        <div class="bg-white p-4 rounded-lg shadow-md mb-4">
+            <h2 class="font-semibold mb-2 text-gray-600">Set Timer Duration</h2>
+            <div class="flex items-center justify-center space-x-2">
+                <div class="input-group text-center">
+                    <input type="number" id="minutes" min="0" max="59" value="25" class="p-2 border rounded-md text-center">
+                    <label class="text-sm text-gray-500">Minutes</label>
+                </div>
+                <div class="input-group text-center">
+                    <input type="number" id="seconds" min="0" max="59" value="0" class="p-2 border rounded-md text-center">
+                    <label class="text-sm text-gray-500">Seconds</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customization -->
+        <div class="bg-white p-4 rounded-lg shadow-md mb-4">
+            <h2 class="font-semibold mb-2 text-gray-600">Customize Overlay</h2>
+            <div class="space-y-3">
+                <!-- Scale -->
+                <div>
+                    <label for="scale" class="block text-sm font-medium text-gray-700">Scale (<span id="scaleValue">100</span>px)</label>
+                    <input type="range" id="scale" min="50" max="500" value="100" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                </div>
+                <!-- Opacity -->
+                <div>
+                    <label for="opacity" class="block text-sm font-medium text-gray-700">Opacity (<span id="opacityValue">0.8</span>)</label>
+                    <input type="range" id="opacity" min="0.1" max="1" step="0.1" value="0.8" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                </div>
+                 <!-- Border Radius -->
+                <div>
+                    <label for="borderRadius" class="block text-sm font-medium text-gray-700">Corner Smoothness (<span id="borderRadiusValue">10</span>px)</label>
+                    <input type="range" id="borderRadius" min="0" max="50" value="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                </div>
+                <!-- Colors -->
+                <div class="flex justify-between items-center">
+                    <div>
+                        <label for="textColor" class="block text-sm font-medium text-gray-700">Text Color</label>
+                        <input type="color" id="textColor" value="#FFFFFF" class="p-1 h-10 w-14 block bg-white border border-gray-300 rounded-md cursor-pointer">
+                    </div>
+                    <div>
+                        <label for="bgColor" class="block text-sm font-medium text-gray-700">Background</label>
+                        <input type="color" id="bgColor" value="#000000" class="p-1 h-10 w-14 block bg-white border border-gray-300 rounded-md cursor-pointer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="grid grid-cols-2 gap-2">
+             <button id="apply" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors col-span-2">Apply & Start</button>
+             <button id="pause" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">Pause/Resume</button>
+             <button id="reset" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">Reset</button>
+             <button id="stop" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-colors col-span-2">Stop & Hide</button>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
